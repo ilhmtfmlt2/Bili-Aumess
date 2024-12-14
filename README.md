@@ -179,5 +179,5 @@ elif response['code'] == 86039:
 ## **📬 联系方式**
 
 如果您有任何问题或建议，请联系开发者：  
-[你的邮箱@example.com](mailto:theoldtimes@foxmail.com)
+[theoldtimes@foxmail.com](mailto:theoldtimes@foxmail.com)
 
