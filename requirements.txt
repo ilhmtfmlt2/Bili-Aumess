@@ -3,3 +3,4 @@ requests
 qrcode
 qrcode-terminal
 urllib3
+termcolor
