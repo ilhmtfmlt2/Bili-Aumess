@@ -16,6 +16,14 @@
 
 ---
 
+### 不会使用代码？没关系！
+
+如果你不熟悉如何运行代码，可以直接下载 **打包好的软件**：
+
+👉 [点击这里访问 Bili-Aumess 发布页面](https://github.com/ilhmtfmlt2/Bili-Aumess/releases/tag/mian)
+
+直接运行，即可开启
+
 ## **🚀 快速开始**
 
 ### 1. 克隆项目
