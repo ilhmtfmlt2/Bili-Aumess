@@ -4,7 +4,7 @@
 # 免责提醒：
 #   - 本脚本完全开源，无任何加密。
 #   - 所有请求均在本地执行，未包含外部加密操作。
-# 提示：哥们我都免费了，别删注释了
+# 提示：哥们我都免费了，你别删注释了
 #   - 脚本免费分享，请尊重作者劳动成果，保留注释内容。
 
 import os
@@ -15,7 +15,8 @@ import urllib
 import hashlib
 import warnings
 import qrcode
-import qrcode_terminal  # 导入 qrcode-terminal
+import qrcode_terminal  # 导入 qrcode-terminal、
+from termcolor import colored
 
 from urllib3.exceptions import InsecureRequestWarning
 
@@ -104,7 +105,8 @@ def login_and_get_cookie():
     # 在终端显示二维码
     show_qrcode(qr_url)
 
-    print("\n[INFO] 请扫描二维码进行登录...")
+    print("\n[INFO] " + colored("请扫描二维码登录", "blue"))
+    print(colored("作者：1509377931和617219367", "green"))
 
     # 轮询二维码扫描状态
     login_data = poll_qrcode(auth_code)
@@ -170,21 +172,29 @@ def make_request(bili_jct, SESSDATA):
         "csrf": bili_jct,
     }
 
+
+
     try:
         response = requests.post(url, headers=headers, data=data, verify=False)
 
         if response.status_code == 200:
             response_json = response.json()
             if response_json.get("code") == 0:
-                print("[INFO] 自动回复开启成功")
+                print(colored("\n[INFO] 自动回复开启成功", "green"))
             else:
-                print(f"[ERROR] 请求失败，返回的错误：{response_json.get('msg', '未知错误')}")
+                print(colored(f"[ERROR] 请求失败，返回的错误：{response_json.get('msg', '未知错误')}", "red"))
         else:
-            print(f"[ERROR] 请求失败，HTTP 状态码: {response.status_code}")
-            print(f"[ERROR] 响应内容: {response.text}")
+            print(colored(f"[ERROR] 请求失败，HTTP 状态码: {response.status_code}", "red"))
+            print(colored(f"[ERROR] 响应内容: {response.text}", "red"))
 
     except requests.exceptions.RequestException as e:
-        print(f"[ERROR] 请求发生异常: {e}")
+        print(colored(f"[ERROR] 请求发生异常: {e}", "red"))
+
+    # 打印美观的作者信息
+    print("\n" + colored("=" * 40, "cyan"))
+    print(colored("作者：1509377931和617219367", "magenta"))
+    print(colored("=" * 40, "cyan"))
+
 
 # 主函数
 def main():
